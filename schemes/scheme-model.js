@@ -13,8 +13,8 @@ function find() {
     return db('schemes');
 }
 
-function findById() {
-
+function findById(id) {
+    return db('schemes').where({id}).first();
 }
 
 function findSteps() {
