@@ -48,7 +48,7 @@ function update(changes, id) {
         return findById(id)
     });
 }
-
-function remove() {
-
+ 
+function remove(id) {
+    return db('schemes').where({id}).del();
 }
