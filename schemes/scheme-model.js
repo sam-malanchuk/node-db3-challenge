@@ -34,14 +34,19 @@ function findSteps(id) {
 }
 
 function add(scheme) {
+    // INSERT INTO schemes (schemes.keys) VALUES (schemes.values)
     return db('schemes').insert(scheme)
         .then(ids => {
             return findById(ids[0])
         });
 }
 
-function update() {
-
+function update(changes, id) {
+    // UPDATE schemes SET scheme.keys = scheme.values WHERE id=id
+    return db('schemes').where({id}).update(changes)
+    .then(updated => {
+        return findById(id)
+    });
 }
 
 function remove() {
