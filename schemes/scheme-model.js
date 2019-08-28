@@ -33,8 +33,11 @@ function findSteps(id) {
         .orderBy('step_number', 'asc')
 }
 
-function add() {
-
+function add(scheme) {
+    return db('schemes').insert(scheme)
+        .then(ids => {
+            return findById(ids[0])
+        });
 }
 
 function update() {
